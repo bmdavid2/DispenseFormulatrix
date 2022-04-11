@@ -79,6 +79,7 @@ design_to_reagents <- function(design_df,platetype="96-well",Well=TRUE){
     design_df$Well <- paste(as.character(design_df[,(ncol(design_df)-1)]),as.character(design_df[,ncol(design_df)]),sep="")
     omit <- 2
   }
+  reagentnames <- names(design_df)[1:ncol(design_df)-omit-1]
   unused_wells <- setdiff(wellnames,design_df$Well)
   n_unused_wells <- length(unused_wells)
   expts_to_fill_plate <- data.frame(matrix(0,n_unused_wells,ncol(design_df)))
@@ -87,7 +88,8 @@ design_to_reagents <- function(design_df,platetype="96-well",Well=TRUE){
   design_df_filled <- rbind(design_df,expts_to_fill_plate)
   ordered_design_df <- design_df_filled[order(factor(design_df_filled[,ncol(design_df_filled)],levels=wellnames)),] 
   print(ordered_design_df)
-  reagent_df <- data.frame(ordered_design_df[,c(1:(ncol(ordered_design_df)-omit-1))])
+  reagent_df <- as.data.frame(ordered_design_df[,c(1:(ncol(ordered_design_df)-omit-1))])
+  names(reagent_df)=reagentnames
   print(reagent_df)
   return(reagent_df)
 }
