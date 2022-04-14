@@ -88,7 +88,7 @@ design_to_reagents <- function(design_df,platetype="96-well",Well=TRUE){
   design_df_filled <- rbind(design_df,expts_to_fill_plate)
   ordered_design_df <- design_df_filled[order(factor(design_df_filled[,ncol(design_df_filled)],levels=wellnames)),] 
   print(ordered_design_df)
-  reagent_df <- as.data.frame(ordered_design_df[,c(1:(ncol(ordered_design_df)-omit-1))])
+  reagent_df <- ordered_design_df[,c(1:(ncol(ordered_design_df)-omit-1)),drop=FALSE]
   names(reagent_df)=reagentnames
   print(reagent_df)
   return(reagent_df)
