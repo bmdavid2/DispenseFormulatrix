@@ -4,16 +4,14 @@
 \alias{make_dispense_list}
 \title{Main running funciton. Turn an experimental design into a dispense list}
 \usage{
-make_dispense_list(design, name, platetype = "96-well", Well = TRUE, ...)
+make_dispense_list(design, name, platetype = "breakaway_pcr_96", ...)
 }
 \arguments{
 \item{design}{Volumetric experimental design. Must include either Well or Row & Col columns}
 
 \item{name}{Design name. Funciton adds appropriate suffix automatically}
 
-\item{platetype="96-well"}{specifies the plate type}
-
-\item{Well=TRUE}{must be adjusted based on the design's well information}
+\item{platetype="96-well"}{specifies the plate type. Must be one of: \n "96-well" \n "breakaway_pcr_96" \n 384-well".}
 }
 \description{
 Main running funciton. Turn an experimental design into a dispense list

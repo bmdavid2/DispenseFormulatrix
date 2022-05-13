@@ -4,12 +4,12 @@
 \alias{reagents_to_layout}
 \title{Convert an ordered reagent volume dataframe to a plate layout}
 \usage{
-reagents_to_layout(reagent_df, platetype = "96-well")
+reagents_to_layout(reagent_df, platetype = "breakaway_pcr_96")
 }
 \arguments{
-\item{reagent_df}{reagent volumes in the order they should appear on the plate. Must only be reagent volumes}
+\item{reagent_df}{reagent volumes in the order they should appear on the plate. Must only be reagent volumes.}
 
-\item{platetype="96-well"}{specifies the plate type for the layout}
+\item{platetype="96-well"}{specifies the plate type for the layout. Must be either "96-well" or "384-well".}
 }
 \description{
 Convert an ordered reagent volume dataframe to a plate layout

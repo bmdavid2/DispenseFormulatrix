@@ -4,14 +4,19 @@
 \alias{assign_wells}
 \title{Add well locations to a volumetric experimental design}
 \usage{
-assign_wells(design, filename = "", platetype = "96-well", randomize = FALSE)
+assign_wells(
+  design,
+  filename = "",
+  platetype = "breakaway_pcr_96",
+  randomize = FALSE
+)
 }
 \arguments{
 \item{design}{Volumetric experimental design}
 
 \item{filename=""}{Optional output file. Default outputs to the console}
 
-\item{platetype="96-well"}{Specifies the well naming scheme}
+\item{platetype="96-well"}{Must be either "96-well" or "384-well"}
 
 \item{randomize=FALSE}{If true, randomize the assigned wells. Else, put them in order.}
 }
