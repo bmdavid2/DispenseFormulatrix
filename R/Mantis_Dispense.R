@@ -134,7 +134,7 @@ assign_wells <- function(design,filename="",platetype="breakaway_pcr_96",randomi
 #' 
 #' @param design Volumetric experimental design. Must include either Well or Row & Col columns
 #' @param name Design name. Funciton adds appropriate suffix automatically
-#' @param platetype="96-well" specifies the plate type. Must be one of: \n "96-well" \n "breakaway_pcr_96" \n 384-well".
+#' @param platetype="96-well" specifies the plate type. Must be one of: "96-well", "breakaway_pcr_96" , 384-well".
 #' @export
 #' 
 make_dispense_list <- function(design,name,platetype="breakaway_pcr_96",...){

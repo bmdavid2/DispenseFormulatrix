@@ -11,7 +11,7 @@ make_dispense_list(design, name, platetype = "breakaway_pcr_96", ...)
 
 \item{name}{Design name. Funciton adds appropriate suffix automatically}
 
-\item{platetype="96-well"}{specifies the plate type. Must be one of: \n "96-well" \n "breakaway_pcr_96" \n 384-well".}
+\item{platetype="96-well"}{specifies the plate type. Must be one of: "96-well", "breakaway_pcr_96" , 384-well".}
 }
 \description{
 Main running funciton. Turn an experimental design into a dispense list
