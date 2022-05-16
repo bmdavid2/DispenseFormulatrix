@@ -20,23 +20,28 @@ devtools::install_github("https://github.com/bmdavid2/DispenseFormulatrix")
 ```
 
 # Using the `make_dispense_list` function
-`make_dispense_list` takes a volumetric experimental design where each column is a reagent and each row is a run. The final column, called "Well", must be included to specify the well position of each run (ex. "A1"). Users can also instead input the well information as two columns "Row" and "Col", were row is a letter and col is a number. `make_dispense_list` can accept either of these configurations by changing the `Well` parameter. `Well=TRUE` if the last column is "Well", and `Well=FALSE` if the "Row" and "Col" configuration is used. `make_dispense_list` cannot accept both configurations at once, and will treat "Row" and "Col" as reagents in that case. 
+`make_dispense_list` takes a volumetric experimental design where each column is a reagent and each row is a run. The final two columns must be called "Row" and "Col", where Row contains the row name (ex. A,B,C), and Col contains the column number (ex. 1,2,3) for each run.  
 ```R 
 make_dispense_list(design,name,...))
 ```
 ## Arguments 
-- `design`: A dataframe where each column is a reagent and each row is a run. Must include run layout information. See function description. 
+* `design`: A dataframe where each column is a reagent and each row is a run. Must include run layout information. See function description. 
 
-- `name`: name of the experiment for the output file.
+* `name`: name of the experiment for the output file.
 
 ## Optional Arguments
- - `platetype`="96-well": Specifies the type of plate for the experiment. Currently only allows a 96- well plate
+ * `platetype`="96-well": Specifies the type of plate for the experiment.
+ allowed plates are: 
+    - "96-well": A standard 96 well plate 
+    - "384-well": A standard 394 well plate
+    - "breakaway_pcr_96": A breakaway 96 well PCR plate (Secured to Mantis by placing it in a standard 96 well plate)
 
- - `Well`=True: Function looks for a final column in the design calle "Well" that has the well information. change to `FALSE` if using "Row"/"Col" configuration. 
+
+
  
 ## Output 
 
 
-- `name.dl.txt` dispense list file 
+*-* `name.dl.txt` dispense list file 
 
  
