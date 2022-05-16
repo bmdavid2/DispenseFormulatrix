@@ -71,7 +71,7 @@ design_to_reagents <- function(design_df,platetype="breakaway_pcr_96"){
   names(expts_to_fill_plate) <- names(design_df)
   expts_to_fill_plate$Well <- unused_wells
   design_df_filled <- rbind(design_df,expts_to_fill_plate)
-  ordered_design_df <- design_df_filled[order(factor(design_df_filled[,ncol(design_df_filled)],levels=wellnames)),] 
+  ordered_design_df <- design_df_filled[order(factor(design_df_filled[,ncol(design_df_filled)],levels=names(welldict))),] 
   print(ordered_design_df)
   reagent_df <- ordered_design_df[,c(1:(ncol(ordered_design_df)-3)),drop=FALSE]
   names(reagent_df)=reagentnames
@@ -155,7 +155,5 @@ make_dispense_list <- function(design,name,platetype="breakaway_pcr_96",...){
 #test_reagents$A[1:9] <- c(1:9)
 #test_reagents$B[25:33] <- c(1:9)
 
-#design <- assign_wells(test_reagents)
 
-#make_dispense_list(design,"testing",Well=T)
 
