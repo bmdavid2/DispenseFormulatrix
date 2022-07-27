@@ -138,7 +138,7 @@ plateinfo <- function(platetype="breakaway_pcr_96"){
 #' @param platetype="breakaway_pcr_96" specifies the plate type. Must be one of: "96-well", "breakaway_pcr_96" , 384-well".
 #' @export
 #' 
-make_dispense_list <- function(design,name,platetype="breakaway_pcr_96",...){
+dispense_list <- function(design,name,platetype="breakaway_pcr_96",...){
   kwargs=list(...)
   plate <- plateinfo(platetype)
   colnames=names(design)
@@ -151,18 +151,4 @@ make_dispense_list <- function(design,name,platetype="breakaway_pcr_96",...){
   export_mantis_worklist(filename,layout,plate,...)
 }
 
-# #test_reagents <- data.frame(A=matrix(0,96,1))
-# 
-# 
-# 
-# #test_reagents$A <- rep(1,96)
-# test_reagents$B <- rep(1,96)
-# test_reagents$C <- rep(1,96)
-# test_reagents$A[1:9] <- c(1:9)
-# test_reagents$B[25:33] <- c(1:9)
-# test_reagents <- assign_wells(test_reagents,randomize=F)
-# plate <- plateinfo()
-# test_reagents_reagents <- design_to_reagents(test_reagents,plate)
-# test_reagents_layout <- reagents_to_layout(test_reagents_reagents,plate)
-# export_mantis_worklist("test.dl.txt",test_reagents_layout,plate)
 
