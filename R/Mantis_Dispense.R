@@ -49,7 +49,7 @@ reagents_to_layout<- function(reagent_df,plate){
 #' @param plate plate information 
 #' @export
 design_to_reagents <- function(design_df,plate){
-  colnames=names(design)
+  colnames=names(design_df)
   if(!is.element("Row",colnames) || !is.element("Col",colnames)){
     stop("Must provide `Row` and `Col` columns for well positions")
   }
