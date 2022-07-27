@@ -106,7 +106,7 @@ plateinfo <- function(platetype="breakaway_pcr_96"){
     rownames <- rep(c("A","B","C","D","E","F","G","H"),ncol)
     colnames <- rep(1:ncol,each=nrow)
     plate$wellnames <- paste0(rownames,colnames)
-    plate$wellnums <- c(1:plate$nrow*plate$ncol)
+    plate$wellnums <- c(1:(plate$nrow*plate$ncol))
     plate$filename <- "breakaway_pcr_96.pd.txt"
   } else if(platetype=="96-well"){
     plate$name <- platetype
@@ -115,7 +115,7 @@ plateinfo <- function(platetype="breakaway_pcr_96"){
     rownames <- rep(c("A","B","C","D","E","F","G","H"),ncol)
     colnames <- rep(1:ncol,each=nrow)
     plate$wellnames <- paste0(rownames,colnames)
-    plate$wellnums <- c(1:plate$nrow*plate$ncol)
+    plate$wellnums <- c(1:(plate$nrow*plate$ncol))
     plate$filename <- "PT3-96-Assay.pd.txt"
   } else if(platetype=="384-well"){
     plate$name <- platetype
@@ -124,7 +124,7 @@ plateinfo <- function(platetype="breakaway_pcr_96"){
     rownames <- rep(c("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P"),ncol)
     colnames <- rep(1:ncol,each=nrow)
     plate$wellnames <- paste0(rownames,colnames)
-    plate$wellnums <- c(1:plate$nrow*plate$ncol)
+    plate$wellnums <- c(1:(plate$nrow*plate$ncol))
     plate$filename <- "PT9-384-Assay.pd.txt"
   } else {
     stop("enter a supported plate type")
