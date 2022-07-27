@@ -64,12 +64,12 @@ design_to_reagents <- function(design_df,plate){
   expts_to_fill_plate$Row <- unlist(unused_welldf[1,])
   expts_to_fill_plate$Col <- unlist(unused_welldf[2,])
   design_df_filled <- rbind(design_df,expts_to_fill_plate)
-  print(design_df_filled)
+  #print(design_df_filled)
   ordered_design_df <- design_df_filled[order(factor(design_df_filled$Well,levels=plate$wellnames)),] 
   print(ordered_design_df)
   reagent_df <- ordered_design_df[,reagentnames,drop=FALSE]
   names(reagent_df)=reagentnames
-  print(reagent_df)
+  #print(reagent_df)
   return(reagent_df)
 }
 
