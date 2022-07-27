@@ -2,9 +2,9 @@
 % Please edit documentation in R/Mantis_Dispense.R
 \name{dispense_list}
 \alias{dispense_list}
-\title{Main running funciton. Turn an experimental design into a dispense list}
+\title{Main running function. Turn an experimental design into a dispense list}
 \usage{
-dispense_list(design, name, platetype = "breakaway_pcr_96", ...)
+dispense_list(design, name, platetype = "breakaway_pcr_96")
 }
 \arguments{
 \item{design}{an Nx(M+2) dataframe containing N experiment rows and M reagent columns. Each entry is a volume in µL. Two extra columns called "Row" (ex. "A") and "Col" (ex. "1") must be included to denote well positions.}
@@ -14,5 +14,5 @@ dispense_list(design, name, platetype = "breakaway_pcr_96", ...)
 \item{platetype="breakaway_pcr_96"}{specifies the plate type. Must be one of: "96-well", "breakaway_pcr_96" , 384-well".}
 }
 \description{
-Main running funciton. Turn an experimental design into a dispense list
+Main running function. Turn an experimental design into a dispense list
 }
