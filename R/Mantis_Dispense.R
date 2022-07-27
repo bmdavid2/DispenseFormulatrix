@@ -49,6 +49,14 @@ reagents_to_layout<- function(reagent_df,plate){
 #' @param plate plate information 
 #' @export
 design_to_reagents <- function(design_df,plate){
+  colnames=names(design)
+  if(!is.element("Row",colnames) || !is.element("Col",colnames)){
+    stop("Must provide `Row` and `Col` columns for well positions")
+  }
+  if(any(!is.element(design_df$Row,plate$rows)) || any(!is.element(design_df$Col,plate$cols))){
+    
+    stop(paste("Row names restricted to:",plate$rows, "Column names restricted to:",plate$cols))
+  }
   design_df$Well <- paste(as.character(design_df$Row),as.character(design_df$Col),sep="")
   if (nrow(design_df) != length(unique(design_df$Well))){
     stop("Cannot have duplicate well locations")
@@ -111,7 +119,9 @@ plateinfo <- function(platetype="breakaway_pcr_96"){
     plate$name <- platetype
     plate$nrow <- 8
     plate$ncol <- 12
-    rownames <- rep(c("A","B","C","D","E","F","G","H"),plate$ncol)
+    plate$rows <- c("A","B","C","D","E","F","G","H") 
+    plate$cols <- c(1:plate$ncol)
+    rownames <- rep(plate$rows,plate$ncol)
     colnames <- rep(1:plate$ncol,each=plate$nrow)
     plate$wellnames <- paste0(rownames,colnames)
     plate$wellnums <- c(1:(plate$nrow*plate$ncol))
@@ -120,7 +130,9 @@ plateinfo <- function(platetype="breakaway_pcr_96"){
     plate$name <- platetype
     plate$nrow <- 8
     plate$ncol <- 12
-    rownames <- rep(c("A","B","C","D","E","F","G","H"),plate$ncol)
+    plate$rows <- c("A","B","C","D","E","F","G","H") 
+    plate$cols <- c(1:plate$ncol)
+    rownames <- rep(plate$rows,plate$ncol)
     colnames <- rep(1:plate$ncol,each=plate$nrow)
     plate$wellnames <- paste0(rownames,colnames)
     plate$wellnums <- c(1:(plate$nrow*plate$ncol))
@@ -129,7 +141,9 @@ plateinfo <- function(platetype="breakaway_pcr_96"){
     plate$name <- platetype
     plate$nrow <- 16
     plate$ncol <- 24
-    rownames <- rep(c("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P"),plate$ncol)
+    plate$rows <- c("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P")
+    plate$cols <- c(1:plate$ncol)
+    rownames <- rep(plate$rows,plate$ncol)
     colnames <- rep(1:plate$ncol,each=plate$nrow)
     plate$wellnames <- paste0(rownames,colnames)
     plate$wellnums <- c(1:(plate$nrow*plate$ncol))
@@ -148,12 +162,7 @@ plateinfo <- function(platetype="breakaway_pcr_96"){
 #' @export
 #' 
 dispense_list <- function(design,name,platetype="breakaway_pcr_96"){
-
   plate <- plateinfo(platetype)
-  colnames=names(design)
-  if(!is.element("Row",colnames) || !is.element("Col",colnames)){
-    stop("Must provide `Row` and `Col` columns for well positions")
-  }
   filename <- paste0(name,".dl.txt")
   reagents <- design_to_reagents(design,plate)
   layout <- reagents_to_layout(reagents,plate)
