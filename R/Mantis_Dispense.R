@@ -131,7 +131,7 @@ plateinfo <- function(platetype="breakaway_pcr_96"){
   }
   return(plate)
 }
-#' Main running funciton. Turn an experimental design into a dispense list
+#' Main running function. Turn an experimental design into a dispense list
 #' 
 #' @param design an Nx(M+2) dataframe containing N experiment rows and M reagent columns. Each entry is a volume in µL. Two extra columns called "Row" (ex. "A") and "Col" (ex. "1") must be included to denote well positions. 
 #' @param name name of the experiment. Appropriate extension is added automatically. 
