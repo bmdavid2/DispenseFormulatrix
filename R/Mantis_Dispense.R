@@ -142,7 +142,7 @@ dispense_list <- function(design,name,platetype="breakaway_pcr_96"){
 
   plate <- plateinfo(platetype)
   colnames=names(design)
-  if(!is.element(colnames,"Row") && !is.element(colnames,"Col")){
+  if(!is.element(colnames,"Row") | !is.element(colnames,"Col")){
     stop("Must provide `Row` and `Col` columns for well positions")
   }
   filename <- paste(name,".dl.txt")
