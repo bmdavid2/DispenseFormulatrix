@@ -150,7 +150,7 @@ dispense_list <- function(design,name,platetype="breakaway_pcr_96"){
   if(!is.element("Row",colnames) || !is.element("Col",colnames)){
     stop("Must provide `Row` and `Col` columns for well positions")
   }
-  filename <- paste(name,".dl.txt")
+  filename <- paste0(name,".dl.txt")
   reagents <- design_to_reagents(design,plate)
   layout <- reagents_to_layout(reagents,plate)
   export_mantis_worklist(filename,layout,plate)
