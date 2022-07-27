@@ -92,6 +92,10 @@ assign_wells <- function(design,filename="",platetype="breakaway_pcr_96",randomi
   return(design)
 }
 
+#' Gather and Store all relevant information about the plate being used
+#' @param platetype="breakaway_pcr_96" specifies the plate type. Must be one of: "96-well", "breakaway_pcr_96" , 384-well".
+#' @export
+#' 
 plateinfo <- function(platetype="breakaway_pcr_96"){
   plate=list()
   ### Supported Plate Types
@@ -131,6 +135,7 @@ plateinfo <- function(platetype="breakaway_pcr_96"){
   }
   return(plate)
 }
+
 #' Main running function. Turn an experimental design into a dispense list
 #' 
 #' @param design an Nx(M+2) dataframe containing N experiment rows and M reagent columns. Each entry is a volume in µL. Two extra columns called "Row" (ex. "A") and "Col" (ex. "1") must be included to denote well positions. 
