@@ -55,7 +55,7 @@ design_to_reagents <- function(design_df,plate){
   }
   if(any(!is.element(design_df$Row,plate$rows)) || any(!is.element(design_df$Col,plate$cols))){
     
-    stop(paste("Row names restricted to:",plate$rows, "Column names restricted to:",plate$cols))
+    stop(cat("Row names restricted to:",plate$rows, "Column names restricted to:",plate$cols))
   }
   design_df$Well <- paste(as.character(design_df$Row),as.character(design_df$Col),sep="")
   if (nrow(design_df) != length(unique(design_df$Well))){
