@@ -4,16 +4,12 @@
 \alias{export_mantis_worklist}
 \title{Convert a reagent plate layout to a mantis dispense list}
 \usage{
-export_mantis_worklist(
-  filename,
-  reagent_layout,
-  platetype = "breakaway_pcr_96"
-)
+export_mantis_worklist(filename, reagent_layout, plate)
 }
 \arguments{
 \item{filename}{a filename for the dispense list. must end in ".dl.txt"}
 
-\item{reagent_layout}{a list of reagent volume matricies. see 'reagents_to_layout'}
+\item{reagent_layout}{a list of reagent volume matrices. see 'reagents_to_layout'}
 }
 \description{
 Convert a reagent plate layout to a mantis dispense list

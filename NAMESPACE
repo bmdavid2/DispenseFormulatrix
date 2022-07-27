@@ -2,6 +2,6 @@
 
 export(assign_wells)
 export(design_to_reagents)
+export(dispense_list)
 export(export_mantis_worklist)
-export(make_dispense_list)
 export(reagents_to_layout)

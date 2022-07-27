@@ -4,12 +4,12 @@
 \alias{design_to_reagents}
 \title{Convert a volume based experimental design to an ordered reagent dataframe}
 \usage{
-design_to_reagents(design_df, platetype = "breakaway_pcr_96")
+design_to_reagents(design_df, plate)
 }
 \arguments{
 \item{design_df}{Formatted dataframe with columns for each reagent, followed by either well location or row col}
 
-\item{platetype="96-well"}{specifies the plate type for the design}
+\item{plate}{plate information}
 }
 \description{
 Convert a volume based experimental design to an ordered reagent dataframe

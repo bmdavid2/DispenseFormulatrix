@@ -16,7 +16,7 @@ assign_wells(
 
 \item{filename=""}{Optional output file. Default outputs to the console}
 
-\item{platetype="96-well"}{Must be either "96-well" or "384-well"}
+\item{platetype="breakaway_pcr_96"}{Must be either "96-well" or "384-well"}
 
 \item{randomize=FALSE}{If true, randomize the assigned wells. Else, put them in order.}
 }
