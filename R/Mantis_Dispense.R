@@ -161,7 +161,7 @@ plateinfo <- function(platetype="breakaway_pcr_96"){
 #' @param platetype="breakaway_pcr_96" specifies the plate type. Must be one of: "96-well", "breakaway_pcr_96" , 384-well".
 #' @export
 #' 
-dispense_list <- function(design,name,platetype="breakaway_pcr_96"){
+mantis_dispense <- function(design,name,platetype="breakaway_pcr_96"){
   plate <- plateinfo(platetype)
   filename <- paste0(name,".dl.txt")
   reagents <- design_to_reagents(design,plate)
