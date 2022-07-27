@@ -107,8 +107,8 @@ plateinfo <- function(platetype="breakaway_pcr_96"){
     plate$name <- platetype
     plate$nrow <- 8
     plate$ncol <- 12
-    rownames <- rep(c("A","B","C","D","E","F","G","H"),ncol)
-    colnames <- rep(1:ncol,each=nrow)
+    rownames <- rep(c("A","B","C","D","E","F","G","H"),plate$ncol)
+    colnames <- rep(1:plate$ncol,each=plate$nrow)
     plate$wellnames <- paste0(rownames,colnames)
     plate$wellnums <- c(1:(plate$nrow*plate$ncol))
     plate$filename <- "breakaway_pcr_96.pd.txt"
@@ -116,8 +116,8 @@ plateinfo <- function(platetype="breakaway_pcr_96"){
     plate$name <- platetype
     plate$nrow <- 8
     plate$ncol <- 12
-    rownames <- rep(c("A","B","C","D","E","F","G","H"),ncol)
-    colnames <- rep(1:ncol,each=nrow)
+    rownames <- rep(c("A","B","C","D","E","F","G","H"),plate$ncol)
+    colnames <- rep(1:plate$ncol,each=plate$nrow)
     plate$wellnames <- paste0(rownames,colnames)
     plate$wellnums <- c(1:(plate$nrow*plate$ncol))
     plate$filename <- "PT3-96-Assay.pd.txt"
@@ -125,8 +125,8 @@ plateinfo <- function(platetype="breakaway_pcr_96"){
     plate$name <- platetype
     plate$nrow <- 16
     plate$ncol <- 24
-    rownames <- rep(c("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P"),ncol)
-    colnames <- rep(1:ncol,each=nrow)
+    rownames <- rep(c("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P"),plate$ncol)
+    colnames <- rep(1:plate$ncol,each=plate$nrow)
     plate$wellnames <- paste0(rownames,colnames)
     plate$wellnums <- c(1:(plate$nrow*plate$ncol))
     plate$filename <- "PT9-384-Assay.pd.txt"
