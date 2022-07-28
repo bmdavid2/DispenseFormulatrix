@@ -169,4 +169,18 @@ mantis_dispense <- function(design,name,platetype="breakaway_pcr_96"){
   export_mantis_worklist(filename,layout,plate)
 }
 
+#' Make multiple dispense lists for a single experiment. Turn an experimental design into a dispense list
+#' 
+#' @param design a list of  Nx(M+2) dataframes containing N experiment rows and M reagent columns. Each entry is a volume in µL. Two extra columns called "Row" (ex. "A") and "Col" (ex. "1") must be included to denote well positions. 
+#' @param name name of the experiment. Appropriate extensions are added automatically. 
+#' @param platetype="breakaway_pcr_96" specifies the plate type. Must be one of: "96-well", "breakaway_pcr_96" , 384-well".
+#' @export
+#' 
+multi_dispense <- function(designs,name,platetype="breakaway_pcr_96"){
+  n_lists <- length(designs)
+  filenames <- paste(name,c(1:n_lists),sep="_")
+  for (i in 1:n_lists){
+    mantis_dispense(designs[[i]],filenames[[i]],platetype=platetype)
+  }
+}
 
