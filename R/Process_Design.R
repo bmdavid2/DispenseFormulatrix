@@ -57,9 +57,4 @@ get_factor_levels <- function(reagent,design){
   
 
 
-reagent_names <- c("A","B","C")
-volume_levels <- list(c(1,1,1,1,1),c(6,7,8,9,10),c(1,2,3,4,5))
-separate_stocks <- c(T,T,F)
-dispense_group <- c(1,2,1)
 
-test <- process_design(design,reagent_names,volume_levels,separate_stocks,dispense_group)
