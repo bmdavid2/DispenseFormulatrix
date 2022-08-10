@@ -60,7 +60,7 @@ get_factor_levels <- function(reagent,design){
   }
 
 
-#' Convert a coded experimental design into a volume-based design for automated dispensing 
+#' Get the stock volume required for each reagent 
 #' 
 #' @param processed_design
 #'

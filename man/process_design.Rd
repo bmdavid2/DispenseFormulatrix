@@ -13,7 +13,7 @@ process_design(
 )
 }
 \arguments{
-\item{coded_design}{}
+\item{dispense_group}{}
 }
 \description{
 Convert a coded experimental design into a volume-based design for automated dispensing
