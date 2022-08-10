@@ -1,6 +1,10 @@
 #' Convert a coded experimental design into a volume-based design for automated dispensing 
 #' 
 #' @param coded_design
+#' @param reagent_names
+#' @param volume_levels
+#' @param separate_stocks
+#' @param dispense_group
 #'
 #' @export
 process_design <- function(coded_design,reagent_names,volume_levels,separate_stocks,dispense_group){
@@ -54,7 +58,22 @@ get_factor_levels <- function(reagent,design){
   levels <- as.character(sort(unique(design[[reagent]])))
   return(levels)
   }
-  
 
+
+#' Convert a coded experimental design into a volume-based design for automated dispensing 
+#' 
+#' @param processed_design
+#'
+#' @export
+stock_volumes <- function(processed_design,prime_buffer=10){
+  reagent_names=names(processed_design)[-c("Row","Col")]
+  vols=zeros(length(reagent_names))
+  for (i in 1:length(reagent_names)){
+    vols[i]=sum(processed_design[[reagent_names[i]]])+prime_buffer
+  }
+  df=data.frame(reagent_names,vols)
+  names(df)=c("name","volume_required")
+  return(df)
+}
 
 
