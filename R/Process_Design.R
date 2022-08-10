@@ -73,6 +73,7 @@ stock_volumes <- function(processed_design,prime_buffer=10){
   }
   df=data.frame(reagent_names,vols)
   names(df)=c("name","volume_required")
+  print(df)
   return(df)
 }
 
