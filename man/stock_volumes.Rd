@@ -4,7 +4,7 @@
 \alias{stock_volumes}
 \title{Get the stock volume required for each reagent}
 \usage{
-stock_volumes(processed_design, prime_buffer = 10)
+stock_volumes(processed_design, priming_buffer = 10, uncertainty = 0.1)
 }
 \arguments{
 \item{processed_design}{}

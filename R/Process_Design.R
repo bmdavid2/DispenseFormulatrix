@@ -65,11 +65,11 @@ get_factor_levels <- function(reagent,design){
 #' @param processed_design
 #'
 #' @export
-stock_volumes <- function(processed_design,prime_buffer=10){
-  reagent_names=names(processed_design)[-c("Row","Col")]
-  vols=zeros(length(reagent_names))
+stock_volumes <- function(processed_design,priming_buffer=10,uncertainty=0.1){
+  reagent_names=setdiff(names(processed_design),c("Row","Col"))
+  vols=rep(0,length(reagent_names))
   for (i in 1:length(reagent_names)){
-    vols[i]=sum(processed_design[[reagent_names[i]]])+prime_buffer
+    vols[i]=ceiling((1+uncertainty)*sum(processed_design[[reagent_names[i]]])+priming_buffer)
   }
   df=data.frame(reagent_names,vols)
   names(df)=c("name","volume_required")
