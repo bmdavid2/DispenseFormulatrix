@@ -1,7 +1,10 @@
 #' Automatically create an experimental plate layout that minimizes pipetting operations 
 #' 
-#' @param filename a filename for the dispense list. must end in ".dl.txt"
-#' @param reagent_layout a list of reagent volume matrices. see 'reagents_to_layout'
+#' @param design an experimental design dataframe containing the coded level of each factor
+#' @param factors an array of the factor names 
+#' @param types an array of the factor types: must be "auto" ,"col" "wafer","plate
+#' @param num_generations the number of GA generations
+#' @param popsize the GA population size
 #' @export
 plate_layout <- function(design,factors,types,num_generations=50,popsize=30){
   julia <- julia_setup()
