@@ -31,6 +31,6 @@ plate_layout <- function(design,factors,types,num_generations=50,popsize=30){
 #' 
 #' @export
 install_plate_layout <- function(){
-  julia_install_package_if_needed("https://github.com/jensenlab/PlateLayout")
-  install_julia_package_if_needed("DataFrames")
+  JuliaCall::julia_install_package_if_needed("https://github.com/jensenlab/PlateLayout")
+  JuliaCall::install_julia_package_if_needed("DataFrames")
 }
