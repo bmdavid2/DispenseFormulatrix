@@ -20,7 +20,7 @@ plate_layout <- function(design,factors,types,num_generations=50,popsize=30){
   JuliaCall::julia_assign("popsize",popsize)
   JuliaCall::julia_command("popsize=Int(popsize);")
   JuliaCall::julia_eval("print(design);")
-  juliaCall::julia_command("plate=FactorAssignGA(design,factors,types;num_generations=num_generations,popsize=popsize);")
+  JuliaCall::julia_command("plate=FactorAssignGA(design,factors,types;num_generations=num_generations,popsize=popsize);")
   JuliaCall::julia_command("out_designs=UpdateDesign(design,plate);")
   JuliaCall::out_designs=julia_eval("out_designs")
   
