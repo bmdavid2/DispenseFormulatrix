@@ -3,6 +3,7 @@
 export(assign_wells)
 export(design_to_reagents)
 export(export_mantis_worklist)
+export(install_plate_layout)
 export(mantis_dispense)
 export(multi_dispense)
 export(plate_layout)
