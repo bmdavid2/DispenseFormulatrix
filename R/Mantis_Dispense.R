@@ -53,6 +53,10 @@ design_to_reagents <- function(design_df,plate){
   if(!is.element("Row",colnames) || !is.element("Col",colnames)){
     stop("Must provide `Row` and `Col` columns for well positions")
   }
+  if(is.numeric(design_df$Row)){
+    design_df$Row <- sapply(design_df$Row, function(x) LETTERS[x])
+    # if The row information is given as numeric values, convert them to letters
+  }
   if(any(!is.element(design_df$Row,plate$rows)) || any(!is.element(design_df$Col,plate$cols))){
     message <- cat("Row names restricted to:",plate$rows,"Column names restricted to:",plate$cols)
     stop(message)
@@ -103,6 +107,8 @@ assign_wells <- function(design,filename="",platetype="breakaway_pcr_96",randomi
   write.csv(design,file=filename)
   return(design)
 }
+
+
 
 #' Gather and Store all relevant information about the plate being used
 #' @param platetype="breakaway_pcr_96" specifies the plate type. Must be one of: "96-well", "breakaway_pcr_96" , 384-well".
