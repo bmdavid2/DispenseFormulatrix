@@ -1,0 +1,4 @@
+﻿sampleID,concentration ,volume,final_concentration,amplicon_length,Row,Col
+sample_1,100,50,50,150,A,1
+sample_2,123,50,30,177,A,2
+sample_3,98,50,30,162,A,3
