@@ -27,7 +27,7 @@ devtools::install_github("https://github.com/bmdavid2/DispenseFormulatrix")
 ## `mantis_dispense` function 
 `mantis_dispense` converts an experiment design into a MANTIS dispense list file. 
 ```R 
-make_dispense_list(design,name,platetype="breakaway_pcr_96")
+mantis_dispense(design,"name",platetype="breakaway_pcr_96")
 ```
 ### Arguments 
 * `design`: A dataframe where each column is a reagent and each row is a run. Each entry is the dispense volume in $\mu L$. Two additional columns "Row" and "Col" are required to specify the well for each run. For example Row="A" and Col=1 indicates that the run goes in well "A1". You can use the [assign_wells](#assign_wells-function) function to automatically add "Row" and "Col" to the design Dataframe. 
